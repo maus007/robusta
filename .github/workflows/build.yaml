@@ -12,7 +12,7 @@ jobs:
   docker:
     outputs:
       imageTag: ${{ steps.meta.outputs.json }}
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: Get current date
         id: date
