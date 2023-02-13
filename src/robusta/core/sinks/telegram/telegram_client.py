@@ -9,14 +9,16 @@ TELEGRAM_BASE_URL = os.environ.get("TELEGRAM_BASE_URL", "https://api.telegram.or
 
 
 class TelegramClient:
-    def __init__(self, chat_id: int, bot_token: str):
+    def __init__(self, chat_id: int, bot_token: str, message_thread_id: int):
         self.chat_id = chat_id
         self.bot_token = bot_token
+        self.message_thread_id = message_thread_id
 
     def send_message(self, message: str, disable_links_preview: bool = True):
         url = f"{TELEGRAM_BASE_URL}/bot{self.bot_token}/sendMessage"
         message_json = {
             "chat_id": self.chat_id,
+            "message_thread_id": self.message_thread_id,
             "disable_web_page_preview": disable_links_preview,
             "parse_mode": "Markdown",
             "text": message,
