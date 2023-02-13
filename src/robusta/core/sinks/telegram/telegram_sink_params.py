@@ -5,7 +5,9 @@ from robusta.core.sinks.sink_config import SinkConfigBase
 class TelegramSinkParams(SinkBaseParams):
     bot_token: str
     chat_id: int
+    message_thread_id: int
     send_files: bool = True  # Change to False, to omit file attachments
+    
 
 
 class TelegramSinkConfigWrapper(SinkConfigBase):
